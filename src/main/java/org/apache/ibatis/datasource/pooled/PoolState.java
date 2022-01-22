@@ -27,13 +27,21 @@ public class PoolState {
 
   protected final List<PooledConnection> idleConnections = new ArrayList<>();
   protected final List<PooledConnection> activeConnections = new ArrayList<>();
+  // 请求连接次数
   protected long requestCount = 0;
+  // 累计请求时间
   protected long accumulatedRequestTime = 0;
+  // 累计存活时间
   protected long accumulatedCheckoutTime = 0;
+  // 声明无效的连接个数
   protected long claimedOverdueConnectionCount = 0;
+  // 累计检测无效连接时间
   protected long accumulatedCheckoutTimeOfOverdueConnections = 0;
+  // 累计等待时间
   protected long accumulatedWaitTime = 0;
+  // 等待个数
   protected long hadToWaitCount = 0;
+  // 坏的连接个数
   protected long badConnectionCount = 0;
 
   public PoolState(PooledDataSource dataSource) {

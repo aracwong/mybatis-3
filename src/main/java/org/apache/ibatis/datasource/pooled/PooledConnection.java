@@ -35,8 +35,11 @@ class PooledConnection implements InvocationHandler {
   private final PooledDataSource dataSource;
   private final Connection realConnection;
   private final Connection proxyConnection;
+  // 存活时间
   private long checkoutTimestamp;
+  // 创建时间
   private long createdTimestamp;
+  // 最后使用时间
   private long lastUsedTimestamp;
   private int connectionTypeCode;
   private boolean valid;
