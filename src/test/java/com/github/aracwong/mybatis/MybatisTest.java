@@ -16,7 +16,6 @@ package com.github.aracwong.mybatis;
  */
 
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
-import org.apache.ibatis.datasource.unpooled.UnpooledDataSource;
 import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSession;
@@ -36,7 +35,7 @@ public class MybatisTest {
   @Test
   public void test_mybatis() {
     TransactionFactory transactionFactory = new JdbcTransactionFactory();
-    DataSource dataSource = new UnpooledDataSource("com.mysql.cj.jdbc.Driver","jdbc:mysql://localhost:3306/test", "root", "123456");
+    DataSource dataSource = new PooledDataSource("com.mysql.cj.jdbc.Driver","jdbc:mysql://localhost:3306/test", "root", "123456");
     Environment env = new Environment("dev", transactionFactory, dataSource);
     Configuration config = new Configuration(env);
     config.addMapper(MyTestMapper.class);
