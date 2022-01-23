@@ -15,7 +15,10 @@ package com.github.aracwong.mybatis;
  * limitations under the License.
  */
 
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.session.RowBounds;
+
+import java.util.List;
 
 /**
  * @author MetaYoo
@@ -23,6 +26,24 @@ import org.apache.ibatis.annotations.Select;
 public interface MyTestMapper {
 
   @Select("select ad_name from advt_ad where id=#{id} ")
-  String getName(Long id);
+  String getByName(Long id);
+
+  @Select("select ad_name from advt_ad")
+  List<String> getByNameByPage(Long id, RowBounds rowBounds);
+
+  @Select("select id, ad_no, ad_name from advt_ad")
+//  @ResultType(AdvtAd.class)
+  @Results(id = "advtAdResutMap", value = {
+    @Result(property = "id", column = "id", id = true),
+    @Result(property = "adNo", column = "ad_no"),
+    @Result(property = "adName", column = "ad_name"),
+  })
+  List<AdvtAd> queryListByPage(Long id, RowBounds rowBounds);
+
+  @Insert("insert into advt_ad(`ad_no`, `ad_name`) values(#{adNo}, #{adName})")
+  Integer save(@Param("adNo") String adNo, @Param("adName") String adName);
+
+  @Update("update advt_ad set ad_name = #{adName} where id=#{id}")
+  Integer update(@Param("id") Long id, @Param("adName") String adName);
 
 }
