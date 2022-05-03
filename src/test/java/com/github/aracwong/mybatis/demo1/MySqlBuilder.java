@@ -1,4 +1,4 @@
-package com.github.aracwong.mybatis;
+package com.github.aracwong.mybatis.demo1;
 /*
  * Copyright 2002-2020 the original author or authors.
  *
@@ -15,45 +15,16 @@ package com.github.aracwong.mybatis;
  * limitations under the License.
  */
 
+import org.apache.ibatis.jdbc.SQL;
+
 /**
  * @author MetaYoo
  */
-public class AdvtAd {
+public class MySqlBuilder {
 
-  private Long id;
-  private String adNo;
-  private String adName;
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getAdNo() {
-    return adNo;
-  }
-
-  public void setAdNo(String adNo) {
-    this.adNo = adNo;
-  }
-
-  public String getAdName() {
-    return adName;
-  }
-
-  public void setAdName(String adName) {
-    this.adName = adName;
-  }
-
-  @Override
-  public String toString() {
-    return "AdvtAd{" +
-      "id=" + id +
-      ", adNo='" + adNo + '\'' +
-      ", adName='" + adName + '\'' +
-      '}';
+  public static String sql() {
+    SQL sql = new SQL();
+    sql.SELECT("id", "ad_no", "ad_name").FROM("advt_ad");
+    return sql.toString();
   }
 }

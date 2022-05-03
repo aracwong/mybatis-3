@@ -1,4 +1,4 @@
-package com.github.aracwong.mybatis;
+package com.github.aracwong.mybatis.demo2;
 /*
  * Copyright 2002-2020 the original author or authors.
  *
@@ -15,16 +15,12 @@ package com.github.aracwong.mybatis;
  * limitations under the License.
  */
 
-import org.apache.ibatis.jdbc.SQL;
+import java.util.Map;
 
 /**
  * @author MetaYoo
  */
-public class MySqlBuilder {
+public interface TestMapper {
 
-  public static String sql() {
-    SQL sql = new SQL();
-    sql.SELECT("id", "ad_no", "ad_name").FROM("advt_ad");
-    return sql.toString();
-  }
+  int testInsert(Map<String, Object> parameterMap);
 }

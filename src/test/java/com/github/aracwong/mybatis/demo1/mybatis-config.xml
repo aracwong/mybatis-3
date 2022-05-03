@@ -15,6 +15,6 @@
     </environment>
   </environments>
   <mappers>
-    <mapper class="com.github.aracwong.mybatis.MyTestMapper"/>
+    <mapper class="com.github.aracwong.mybatis.demo1.MyTestMapper"/>
   </mappers>
 </configuration>

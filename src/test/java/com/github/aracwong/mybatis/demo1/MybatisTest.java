@@ -1,4 +1,4 @@
-package com.github.aracwong.mybatis;
+package com.github.aracwong.mybatis.demo1;
 /*
  * Copyright 2002-2020 the original author or authors.
  *
@@ -25,7 +25,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.sql.DataSource;
-import java.util.Arrays;
 import java.util.List;
 
 /**

@@ -164,6 +164,7 @@ public class TypeParameterResolver {
       throw new IllegalArgumentException("The 2nd arg must be Class or ParameterizedType, but was: " + srcType.getClass());
     }
 
+    // 判断是否与泛型生命的类或者接口是同一个类
     if (clazz == declaringClass) {
       Type[] bounds = typeVar.getBounds();
       if (bounds.length > 0) {
