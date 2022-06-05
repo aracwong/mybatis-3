@@ -40,6 +40,7 @@ class DefaultObjectFactoryTest {
 
   @Test
   void createClass() {
+    // Collection Map TreeSet
     DefaultObjectFactory defaultObjectFactory = new DefaultObjectFactory();
     TestClass testClass = defaultObjectFactory.create(TestClass.class,
         Arrays.asList(String.class, Integer.class), Arrays.asList("foo", 0));
