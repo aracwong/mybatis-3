@@ -23,6 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -52,5 +53,18 @@ public class MybatisTest {
     Map<String, Object> parameterMap = new HashMap<>();
     parameterMap.put("name", "test");
     testMapper.testInsert(parameterMap);
+  }
+
+  @Test
+  public void test_select() {
+    TestMapper testMapper = sqlSession.getMapper(TestMapper.class);
+    List<Map<String, Object>> result = testMapper.testSelect();
+    System.out.println(result);
+  }
+  @Test
+  public void test_selectById() {
+    TestMapper testMapper = sqlSession.getMapper(TestMapper.class);
+    Map<String, Object> result = testMapper.testSelectById(1L);
+    System.out.println(result);
   }
 }

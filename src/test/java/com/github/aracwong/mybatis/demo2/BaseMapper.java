@@ -1,4 +1,7 @@
 package com.github.aracwong.mybatis.demo2;
+
+import java.util.Map;
+
 /*
  * Copyright 2002-2020 the original author or authors.
  *
@@ -14,16 +17,7 @@ package com.github.aracwong.mybatis.demo2;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+public interface BaseMapper {
 
-import java.util.List;
-import java.util.Map;
-
-/**
- * @author MetaYoo
- */
-public interface TestMapper extends BaseMapper {
-
-  int testInsert(Map<String, Object> parameterMap);
-
-  List<Map<String, Object>> testSelect();
+  Map<String, Object> testSelectById(Long id);
 }

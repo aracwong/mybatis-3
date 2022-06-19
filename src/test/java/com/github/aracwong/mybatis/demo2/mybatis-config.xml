@@ -17,6 +17,7 @@
   </environments>
   <mappers>
     <mapper class="com.github.aracwong.mybatis.demo2.TestMapper"/>
+    <mapper class="com.github.aracwong.mybatis.demo2.BaseMapper"/>
     <!--<package name="com.github.aracwong.mybatis.demo2"/>-->
   </mappers>
 </configuration>

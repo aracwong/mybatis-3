@@ -17,6 +17,11 @@
     select *
     from test
   </sql>
+  <!--<select id="testSelectById" parameterType="java.lang.Long" resultMap="testResultMap">
+    select *
+    from test
+    where id = #{id}
+  </select>-->
   <select id="testSelect" resultMap="testResultMap">
     <include refid="testSql"/>
   </select>
