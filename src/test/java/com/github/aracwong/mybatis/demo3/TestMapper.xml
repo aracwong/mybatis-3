@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.github.aracwong.mybatis.demo3.TestMapper">
+  <cache readOnly="true"/>
+  <parameterMap id="testParameterMap" type="java.util.HashMap">
+    <!--<parameter property="id" javaType="java.lang.Long"/>-->
+    <parameter property="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+  </parameterMap>
+  <resultMap id="testResultMap" type="com.github.aracwong.mybatis.demo3.User">
+    <id column="id" property="id" javaType="java.lang.Long"/>
+    <result column="name" property="name" javaType="java.lang.String"/>
+  </resultMap>
+  <sql id="testSql">
+    select *
+    from test
+  </sql>
+  <!--<select id="testSelectById" parameterType="java.lang.Long" resultMap="testResultMap">
+    select *
+    from test
+    where id = #{id}
+  </select>-->
+  <select id="testSelect" parameterType="java.lang.Long" resultMap="testResultMap">
+    select *
+    from test
+        <where>
+          <if test="id != null">
+            id = #{id}
+          </if>
+        </where>
+    limit 10
+  </select>
+  <insert id="testInsert" parameterMap="testParameterMap">
+    insert into test(`name`) values (#{name})
+  </insert>
+  <update id="testUpdate" parameterMap="testParameterMap">
+    update test
+    set name = 'update'
+    where 1 = 1
+  </update>
+  <delete id="testDelete" parameterType="java.lang.Long">
+    delete
+    from test
+    where id = 1
+  </delete>
+</mapper>
